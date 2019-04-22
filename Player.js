@@ -11,32 +11,32 @@ class Player extends VisibleObject {
       }
     ]
   }
-  
+
   update(dt) {
     const movement = new V3();
-    
+
     if(input.keysDown.a) {
       movement.addX(-1);
     }
-    
+
     if(input.keysDown.d) {
       movement.addX(1);
     }
-        
+
     if(input.keysDown.w) {
       movement.addY(-1);
     }
-            
+
     if(input.keysDown.s) {
       movement.addY(1);
     }
-    
+
     if(input.keysDown.q) {
-      this.position.z += this.maxSpeed * dt;
+      camera.position.z += 500 * dt;
     }
 
     if(input.keysDown.e) {
-      this.position.z -= this.maxSpeed * dt;
+      camera.position.z -= 500 * dt;
     }
 
    movement.limit(this.maxSpeed * dt);
