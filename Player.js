@@ -1,13 +1,13 @@
 class Player extends VisibleObject {
   constructor() {
-    super();
-    this.position = new V3(100, 100);
+    super(200, 200, -20);
+
     this.maxSpeed = 200;
     this.layers = [
       {
         type: 'circle',
-        radius: 5,
-        fill: 'red'
+        radius: 3,
+        fill: 'white'
       }
     ]
   }

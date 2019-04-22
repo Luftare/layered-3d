@@ -12,25 +12,27 @@ const loop = new Loop({
 
 const player = new Player();
 
-const trees = [...Array(20)].map(() => {
+const trees = [...Array(0)].map(() => {
   return new Tree(Math.random() * 500, Math.random() * 500);
 });
 
-const buildings = [...Array(20)].map(() => {
+const buildings = [...Array(50)].map(() => {
   return new Building(Math.random() * 500, Math.random() * 500);
 });
 
 let renderList = [player, ...trees, ...buildings];
 
 const camera = {
-  position: new V3(0, 0, -5000),
+  position: new V3(0, 0, -4000),
   width: canvas.width,
   height: canvas.height,
   viewDistance: 4000,
 };
 
 function update(dt) {
+  buildings.forEach(building => building.update(dt));
   player.update(dt);
+
   input.clearState();
 }
 
