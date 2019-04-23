@@ -2,7 +2,7 @@ class Player extends VisibleObject {
   constructor() {
     super(200, 200, -20);
 
-    this.maxSpeed = 200;
+    this.maxSpeed = 250;
     this.layers = [
       {
         type: 'circle',
