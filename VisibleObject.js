@@ -12,7 +12,7 @@ class VisibleObject {
     y: Math.sin(0.1)
   };
 
-  update() {}
+  update() { }
 
   render() {
     const layerHeight = this.getLayerHeight();
@@ -21,15 +21,15 @@ class VisibleObject {
       const absolutePosition = this.position.clone().addZ(-layerHeight * index)
       const projected = this.getProjected(absolutePosition);
       const scale = this.getScaleAt(absolutePosition);
-      if(scale <= 0) return;
+      if (scale <= 0) return;
 
-      if(layer.type === 'circle') {
+      if (layer.type === 'circle') {
         paint.circle({
           position: projected,
           radius: layer.radius * scale,
           fill: layer.fill
         });
-      } else if(layer.type === 'rectangle') {
+      } else if (layer.type === 'rectangle') {
         paint.rect({
           width: layer.width * scale,
           height: layer.height * scale,
@@ -56,13 +56,13 @@ class VisibleObject {
       const projected = this.getProjected(absolutePosition);
       const scale = this.getScaleAt(absolutePosition);
 
-      if(layer.type === 'circle') {
+      if (layer.type === 'circle') {
         paint.circle({
           position: projected,
           radius: layer.radius * scale,
           fill: VisibleObject.shadowColor
         });
-      } else if(layer.type === 'rectangle') {
+      } else if (layer.type === 'rectangle') {
         paint.rect({
           width: layer.width * scale,
           height: layer.height * scale,

@@ -1,22 +1,23 @@
 class Building extends VisibleObject {
-  constructor(x, y) {
-    super(x, y, 0);
-    this.velocityZ = 0;
+  constructor(x, y, z) {
+    super(x, y, z);
 
     this.dimensions = {
-      x: 20,
-      y: 40
+      x: randomBetween(20, 70),
+      y: randomBetween(20, 100)
     };
 
-    this.height = 1900 * Math.random();
+    this.height = randomBetween(100, 500);
 
-    const layerCount = Math.ceil(this.height / 50);
+    const layerCount = Math.ceil(this.height / 30);
+    const angle = randomBetween(0, Math.PI * 2);
+
     this.layers = [...Array(layerCount)].map((_, index) => ({
       type: 'rectangle',
-      width: this.dimensions.x - index * 0.5,
+      width: this.dimensions.x,
       height: this.dimensions.y,
-      fill: index % 2 ? 'black' : 'orange',
-      angle: index * 0.1
+      fill: index % 2 ? 'black' : 'darkgrey',
+      angle,
     }));
   }
 }
